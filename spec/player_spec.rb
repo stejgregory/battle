@@ -12,7 +12,7 @@ describe Player do
 
   describe 'attack'
     it "should reduce hit points if you click attack" do
-      expect{subject.attack}.to change{player_2.hitpoints}.by(-10)
+      expect{subject.attack(player_2)}.to change{player_2.hit_points}.by(-10)
     end
 
 end
