@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'player'
 
 describe Player do
   subject { described_class.new("Sally") }
