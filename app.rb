@@ -9,8 +9,9 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    $player_1 = Player.new(params[:player_one_name])
-    $player_2 = Player.new(params[:player_two_name])
+    player_1 = Player.new(params[:player_one_name])
+    player_2 = Player.new(params[:player_two_name])
+    $game = Game.new(player_1, player_2)
     redirect '/play'
   end
 
