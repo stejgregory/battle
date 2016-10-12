@@ -14,3 +14,11 @@ feature 'Hit Points' do
     expect(page).to have_content 'Joffrey Baratheon HP: 60'
   end
 end
+
+feature 'Attacking' do
+  scenario 'get confirmation' do
+    sign_in_and_play
+    click_button 'Attack'
+    expect(page).to have_content 'Attack successful!'
+  end
+end
