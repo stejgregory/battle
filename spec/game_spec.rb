@@ -3,14 +3,26 @@ require 'player'
 require 'game'
 
 describe Game do
-  let(:player_1) { Player.new("Sally") }
-  let(:player_2) { Player.new("Claire") }
+  let(:player_1) { double :player }
+  let(:player_2) { double :player }
   subject { described_class.new(player_1, player_2) }
 
-  describe 'attack' do
-    it "should reduce hit points if you click attack" do
-      expect{subject.attack(subject.player_2)}.to change{subject.player_2.hit_points}.by(-10)
+  describe '#attack' do
+    it "should be able to attack" do
+      allow(player_2).to receive(:reduce_health)
+      expect(player_2).to receive(:reduce_health)
+      subject.attack(player_2)
     end
   end
 
+  describe 'switch turns' do
+    it 'should start with player1' do
+      expect(subject.current_turn).to eq player_1
+    end
+
+    it 'should switch to player2' do
+      subject.switch_turns
+      expect(subject.current_turn).to eq player_2
+    end
+  end
 end
