@@ -14,3 +14,27 @@ feature 'Attack' do
     expect(page).to have_content 'Mittens: 50hp'
   end
 end
+
+feature 'Multiple attack buttons' do
+  scenario 'first attack on player 2' do
+    sign_in_and_play
+    expect(page).to have_content 'Punch'
+    expect(page).to have_content 'Kick'
+  end
+end
+
+feature 'Can punch players' do
+  scenario 'player 1 punches player 2' do
+    sign_in_and_play
+    click_button 'Punch'
+    expect(page).to have_content 'Dave has punched Mittens'
+  end
+end
+
+feature 'Can kick players' do
+  scenario 'player 1 kicks player 2' do
+    sign_in_and_play
+    click_button 'Kick'
+    expect(page).to have_content 'Dave has kicked Mittens'
+  end
+end
