@@ -39,6 +39,7 @@ enable :sessions
 
   post '/punch' do
     Attack.punch(@game.current_opponent)
+    Attack.heal(@game.current_turn)
     if @game.game_over?
       redirect '/game-over'
     else

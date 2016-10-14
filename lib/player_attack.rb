@@ -15,6 +15,10 @@ class Attack
     new(player).kick
   end
 
+  def self.heal(player)
+    new(player).heal
+  end
+
   def run
    @player.receive_damage
   end
@@ -25,6 +29,10 @@ class Attack
 
   def kick
     @player.receive_kick
+  end
+
+  def heal
+    @player.heal
   end
 
 end
