@@ -1,0 +1,11 @@
+<%= @game.current_turn.name %> kicked <%= @game.current_opponent.name %>
+<div>
+<%= @game.current_turn.name %> get's another go!
+</div>
+
+<%= @game.player_1.name %>: <%= @game.player_1.hit_points %>hp
+<%= @game.player_2.name %>: <%= @game.player_2.hit_points %>hp
+
+<form action="/play" method='get'>
+  <input type='submit' value='OK'>
+</form>

@@ -52,8 +52,16 @@ enable :sessions
     if @game.game_over?
       redirect '/game-over'
     else
-      redirect '/kick'
+      if rand() < 0.5
+        redirect '/kick'
+      else
+        redirect '/kicksleep'
+      end
     end
+  end
+
+  get '/kicksleep' do
+    erb :kicksleep
   end
 
   get '/attack' do
