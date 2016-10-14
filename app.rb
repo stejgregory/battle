@@ -37,8 +37,34 @@ enable :sessions
     end
   end
 
+  post '/punch' do
+    Attack.punch(@game.current_opponent)
+    if @game.game_over?
+      redirect '/game-over'
+    else
+      redirect '/punch'
+    end
+  end
+
+  post '/kick' do
+    Attack.kick(@game.current_opponent)
+    if @game.game_over?
+      redirect '/game-over'
+    else
+      redirect '/kick'
+    end
+  end
+
   get '/attack' do
     erb :attack
+  end
+
+  get '/punch' do
+    erb :punch
+  end
+
+  get '/kick' do
+    erb :kick
   end
 
   post '/switch-turns' do

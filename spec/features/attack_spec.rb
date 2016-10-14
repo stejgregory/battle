@@ -15,19 +15,11 @@ feature 'Attack' do
   end
 end
 
-feature 'Multiple attack buttons' do
-  scenario 'first attack on player 2' do
-    sign_in_and_play
-    expect(page).to have_content 'Punch'
-    expect(page).to have_content 'Kick'
-  end
-end
-
 feature 'Can punch players' do
   scenario 'player 1 punches player 2' do
     sign_in_and_play
     click_button 'Punch'
-    expect(page).to have_content 'Dave has punched Mittens'
+    expect(page).to have_content 'Dave punched Mittens'
   end
 end
 
@@ -35,6 +27,6 @@ feature 'Can kick players' do
   scenario 'player 1 kicks player 2' do
     sign_in_and_play
     click_button 'Kick'
-    expect(page).to have_content 'Dave has kicked Mittens'
+    expect(page).to have_content 'Dave kicked Mittens'
   end
 end

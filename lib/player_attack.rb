@@ -7,7 +7,24 @@ class Attack
    new(player).run
    end
 
+  def self.punch(player)
+    new(player).punch
+  end
+
+  def self.kick(player)
+    new(player).kick
+  end
+
   def run
    @player.receive_damage
   end
-end 
+
+  def punch
+    @player.receive_punch
+  end
+
+  def kick
+    @player.receive_kick
+  end
+
+end
